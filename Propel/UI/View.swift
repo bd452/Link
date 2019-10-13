@@ -17,8 +17,7 @@ public enum propertyConstraint {
     case bottom
 }
 
-public class View: UIView {}
-
+public typealias View = UIView
 /// For property modifiers
 
 public extension View {
@@ -28,23 +27,23 @@ public extension View {
     convenience init(x: CGFloat = 0, y: CGFloat = 0, width: CGFloat = 0, height: CGFloat = 0) {
         self.init(x, y, width, height)
     }
-    func frame(_ rect: Rect) -> View {
+    func frame(_ rect: Rect) -> Self {
         self.frame = rect
         return self
     }
-    func frame(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> View {
+    func frame(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> Self {
         self.frame = CGRect(x: x, y: y, width: width, height: height)
         return self
     }
-    func size(_ size: Size) -> View {
-        self.frame ~= size
+    func size(_ size: Size) -> Self {
+        self.frame <- size
         return self
     }
-    func origin(_ origin: Point) -> View {
-        self.frame ~= origin
+    func origin(_ origin: Point) -> Self {
+        self.frame <- origin
         return self
     }
-    func backgroundColor(_ color: Color) -> View {
+    func backgroundColor(_ color: Color) -> Self {
         self.backgroundColor = color
         return self
     }
@@ -53,9 +52,12 @@ public extension View {
 /// For regular layout
 
 public extension View {
-    func add(_ view: View) -> View {
+    func add(_ view: UIView) -> Self {
         self.addSubview(view)
         return self
+    }
+    static func <- (view1: View, view2: View) -> View {
+        return view1.add(view2)
     }
 }
 
@@ -68,7 +70,7 @@ public extension View {
 /// For autolayout
 
 public extension View {
-    func constrain(_ type: propertyConstraint, from constraint: NSLayoutAnchor<AnyObject>? = nil, by constant: CGFloat) -> View {
+    func constrain(_ type: propertyConstraint, from constraint: NSLayoutAnchor<AnyObject>? = nil, by constant: CGFloat) -> Self {
         switch type {
         case .width:
             self.widthAnchor.constraint(equalToConstant: constant)
@@ -92,4 +94,16 @@ public extension View {
         return self
     }
     
+}
+
+public extension View {
+    func then(_ a: () -> Void) {
+        a()
+    }
+}
+
+public extension UIView {
+    var view: View! {
+        return self as? View
+    }
 }

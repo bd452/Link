@@ -8,6 +8,11 @@
 
 import UIKit
 
-class Animation: CALayer {
+typealias Layer = CALayer
 
+public extension Layer {
+    func cornerRadius(_ radius: CGFloat) -> Self {
+        self.cornerRadius = radius
+        return self
+    }
 }

@@ -8,6 +8,10 @@
 
 import UIKit
 
-class Font: UIFont {
+public typealias Font = UIFont
 
+public extension Font {
+    convenience init?(_ named: String, _ ofSize: CGFloat = 14) {
+        self.init(name: named, size: ofSize)
+    }
 }

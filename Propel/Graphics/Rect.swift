@@ -82,24 +82,23 @@ public extension CGRect {
     
 }
 
-func + (first: Rect, second: Rect) -> Rect {
+public func + (first: Rect, second: Rect) -> Rect {
     return first.modify(x: second.maxX, y: second.maxY, width: second.width, height: second.height)
 }
-func += (first: inout Rect, second: Rect) {
+public func += (first: inout Rect, second: Rect) {
     first = first.modify(x: second.maxX, y: second.maxY, width: second.width, height: second.height)
 }
-infix operator ~=;
 
-func ~= (rect: inout Rect, modifiers: (x: CGFloat?, y: CGFloat?, width: CGFloat?, height: CGFloat?)) {
+public func <- (rect: inout Rect, modifiers: (x: CGFloat?, y: CGFloat?, width: CGFloat?, height: CGFloat?)) {
     rect = rect.change(x: modifiers.x, y: modifiers.y, width: modifiers.width, height: modifiers.height)
 }
-func ~= (rect: inout Rect, size: CGSize) {
+public func <- (rect: inout Rect, size: Size) {
     rect = rect.size(size)
 }
-func ~= (rect: inout Rect, origin: CGPoint) {
+public func <- (rect: inout Rect, origin: Point) {
     rect = rect.origin(origin)
 }
-func ~= (rect: inout Rect, modifiers: (origin: CGPoint?, size: CGSize?)) {
+public func <- (rect: inout Rect, modifiers: (origin: CGPoint?, size: CGSize?)) {
     rect.size = modifiers.size ?? rect.size
     rect.origin = modifiers.origin ?? rect.origin
 }

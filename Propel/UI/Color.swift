@@ -8,9 +8,7 @@
 
 import UIKit
 
-public class Color: UIColor {
-    
-}
+public typealias Color = UIColor
 
 public typealias colorComponentsRGB = (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)
 public typealias colorComponentsHSB = (hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat)
@@ -69,7 +67,7 @@ public extension Color {
         return Color(rgba.red, rgba.green, blue, rgba.alpha)
     }
     func alpha(_ alpha: CGFloat) -> Color {
-        return self.withAlphaComponent(alpha) as! Color
+        return self.withAlphaComponent(alpha)
     }
 }
 

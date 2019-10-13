@@ -8,13 +8,25 @@
 
 import Foundation
 
+public typealias ImageView = UIImageView
 
-public class ImageView: UIImageView {
-    public func image(_ image: UIImage) -> ImageView {
+//open class ImageView: UIImageView {
+//    public func image(_ image: UIImage) -> ImageView {
+//        self.image = image
+//        return self
+//    }
+//}
+
+public extension ImageView {
+    func image(_ image: UIImage) -> Self {
         self.image = image
         return self
     }
-}
-
-public extension ImageView {
+    func withImage(_ image: (UIImage?) -> Void) {
+        image(self.image)
+    }
+    func withImage(_ image: (UIImage?) -> Void) -> Self {
+        image(self.image)
+        return self
+    }
 }

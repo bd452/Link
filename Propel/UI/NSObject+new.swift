@@ -8,6 +8,22 @@
 
 import UIKit
 
-class NSObject_new: NSObject {
 
+//public func create<type>(_ type: AnyObject.Type, _ constructor: (type)->Void) -> type {
+//    let this = type.init() as! type
+//    constructor(this)
+//    return this
+//}
+
+public extension NSObject {
+    
+    func mutate(_ mutation: (NSObject)->Void) -> Self {
+        mutation(self)
+        return self
+    }
+    
+    convenience init(with: (NSObject) -> Void) {
+        self.init()
+        with(self)
+    }
 }

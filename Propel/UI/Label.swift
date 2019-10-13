@@ -8,17 +8,18 @@
 
 import Foundation
 
+public typealias Label = UILabel
 
-class Label: UILabel {
-    public func color(_ color: UIColor) -> Label {
+public extension Label {
+    func color(_ color: Color) -> Self {
         self.textColor = color
         return self
     }
-    public func text(_ text: String) -> Label {
+    func text(_ text: String) -> Self {
         self.text = text
         return self
     }
-    public func font(_ font: UIFont) -> Label {
+    func font(_ font: Font) -> Self {
         self.font = font
         return self
     }

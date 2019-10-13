@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+infix operator <-;
+
+infix operator ≠;
+
+public func ≠(first: AnyObject, second: AnyObject) -> Bool {
+    return !first.isEqual(second)
+}
+
+
+
