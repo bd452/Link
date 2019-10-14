@@ -12,7 +12,41 @@
 		02333CF8234D58C00083405F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02333CF6234D58C00083405F /* Main.storyboard */; };
 		02333CFA234D58C30083405F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02333CF9234D58C30083405F /* Assets.xcassets */; };
 		02333CFD234D58C30083405F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02333CFB234D58C30083405F /* LaunchScreen.storyboard */; };
+		02333D0A234D58FF0083405F /* Propel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02333D09234D58F80083405F /* Propel.framework */; };
+		02333D0B234D58FF0083405F /* Propel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02333D09234D58F80083405F /* Propel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		02333D2C2353F2550083405F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 02333D2B2353F2540083405F /* README.md */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		02333D08234D58F80083405F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02333D04234D58F80083405F /* Propel.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 02333CDB234D588A0083405F;
+			remoteInfo = Propel;
+		};
+		02333D0C234D58FF0083405F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02333D04234D58F80083405F /* Propel.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 02333CDA234D588A0083405F;
+			remoteInfo = Propel;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		02333D0E234D58FF0083405F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				02333D0B234D58FF0083405F /* Propel.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		02333CEF234D58C00083405F /* PropelExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PropelExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +56,8 @@
 		02333CF9234D58C30083405F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02333CFC234D58C30083405F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02333CFE234D58C30083405F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02333D04234D58F80083405F /* Propel.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Propel.xcodeproj; path = ../Propel.xcodeproj; sourceTree = "<group>"; };
+		02333D2B2353F2540083405F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02333D0A234D58FF0083405F /* Propel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +75,8 @@
 		02333CE6234D58C00083405F = {
 			isa = PBXGroup;
 			children = (
+				02333D2B2353F2540083405F /* README.md */,
+				02333D04234D58F80083405F /* Propel.xcodeproj */,
 				02333CF1234D58C00083405F /* PropelExample */,
 				02333CF0234D58C00083405F /* Products */,
 			);
@@ -64,6 +103,14 @@
 			path = PropelExample;
 			sourceTree = "<group>";
 		};
+		02333D05234D58F80083405F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				02333D09234D58F80083405F /* Propel.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,10 +121,12 @@
 				02333CEB234D58C00083405F /* Sources */,
 				02333CEC234D58C00083405F /* Frameworks */,
 				02333CED234D58C00083405F /* Resources */,
+				02333D0E234D58FF0083405F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				02333D0D234D58FF0083405F /* PBXTargetDependency */,
 			);
 			name = PropelExample;
 			productName = PropelExample;
@@ -110,12 +159,28 @@
 			mainGroup = 02333CE6234D58C00083405F;
 			productRefGroup = 02333CF0234D58C00083405F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 02333D05234D58F80083405F /* Products */;
+					ProjectRef = 02333D04234D58F80083405F /* Propel.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				02333CEE234D58C00083405F /* PropelExample */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		02333D09234D58F80083405F /* Propel.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Propel.framework;
+			remoteRef = 02333D08234D58F80083405F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		02333CED234D58C00083405F /* Resources */ = {
@@ -124,6 +189,7 @@
 			files = (
 				02333CFD234D58C30083405F /* LaunchScreen.storyboard in Resources */,
 				02333CFA234D58C30083405F /* Assets.xcassets in Resources */,
+				02333D2C2353F2550083405F /* README.md in Resources */,
 				02333CF8234D58C00083405F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,6 +207,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		02333D0D234D58FF0083405F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Propel;
+			targetProxy = 02333D0C234D58FF0083405F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		02333CF6234D58C00083405F /* Main.storyboard */ = {

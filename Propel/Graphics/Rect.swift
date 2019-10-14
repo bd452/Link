@@ -10,7 +10,7 @@ import Foundation
 
 public typealias Rect = CGRect
 
-public extension CGRect {
+public extension Rect {
     func modify(x: CGFloat = 0, y: CGFloat = 0, width: CGFloat = 0, height: CGFloat = 0) -> Rect {
         return Rect(x: self.minX + x, y: self.minY + y, width: self.width + width, height: self.height + height)
     }
@@ -81,6 +81,8 @@ public extension CGRect {
     
     
 }
+
+extension Rect: Propel {}
 
 public func + (first: Rect, second: Rect) -> Rect {
     return first.modify(x: second.maxX, y: second.maxY, width: second.width, height: second.height)

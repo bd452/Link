@@ -102,8 +102,3 @@ public extension View {
     }
 }
 
-public extension UIView {
-    var view: View! {
-        return self as? View
-    }
-}

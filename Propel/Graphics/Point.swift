@@ -15,6 +15,7 @@ public extension Point {
         return CGPoint(x: self.x + x, y: self.y + y)
     }
 }
+extension Point: Propel {}
 
 public func + (first: Point, second: Point) -> Point {
     return first.modify(x: second.x, y: second.y)

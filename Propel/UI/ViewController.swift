@@ -9,10 +9,6 @@
 import UIKit
 
 open class ViewController: UIViewController {
-    
-    public var _view: View! {
-        return view as? View
-    }
 
     var onDidLoad: ((View?) -> Void)?
     var onWillAppear: ((Bool) -> Void)?
@@ -24,7 +20,7 @@ open class ViewController: UIViewController {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        onDidLoad?(self.view as? View)
+        onDidLoad?(self.view)
         // Do any additional setup after loading the view.
     }
     open override func viewWillAppear(_ animated: Bool) {
@@ -66,31 +62,31 @@ open class ViewController: UIViewController {
 
 }
 public extension ViewController {
-    func onDidLoad(_ closure: @escaping (View?) -> Void) -> Self {
+    func didLoad(_ closure: @escaping (View?) -> Void) -> Self {
         self.onDidLoad = closure
         return self
     }
-    func onWillAppear(_ closure: @escaping (Bool) -> Void) -> Self {
+    func willAppear(_ closure: @escaping (Bool) -> Void) -> Self {
         self.onWillAppear = closure
         return self
     }
-    func onWillDisappear(_ closure: @escaping (Bool) -> Void) -> Self {
+    func willDisappear(_ closure: @escaping (Bool) -> Void) -> Self {
         self.onWillDisappear = closure
         return self
     }
-    func onDidAppear(_ closure: @escaping (Bool) -> Void) -> Self {
+    func didAppear(_ closure: @escaping (Bool) -> Void) -> Self {
         self.onDidAppear = closure
         return self
     }
-    func onDidDisappear(_ closure: @escaping (Bool) -> Void) -> Self {
+    func didDisappear(_ closure: @escaping (Bool) -> Void) -> Self {
         self.onDidDisappear = closure
         return self
     }
-    func onWillLayoutSubviews(_ closure: @escaping () -> Void) -> Self {
+    func willLayoutSubviews(_ closure: @escaping () -> Void) -> Self {
         self.onWillLayoutSubviews = closure
         return self
     }
-    func onDidLayoutSubviews(_ closure: @escaping () -> Void) -> Self {
+    func didLayoutSubviews(_ closure: @escaping () -> Void) -> Self {
         self.onDidLayoutSubviews = closure
         return self
     }

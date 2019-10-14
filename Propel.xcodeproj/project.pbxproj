@@ -8,12 +8,42 @@
 
 /* Begin PBXBuildFile section */
 		02333CE0234D588A0083405F /* Propel.h in Headers */ = {isa = PBXBuildFile; fileRef = 02333CDE234D588A0083405F /* Propel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		02333D10234D59230083405F /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02333D0F234D59230083405F /* View.swift */; };
+		02333D12234D5A1D0083405F /* Rect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02333D11234D5A1D0083405F /* Rect.swift */; };
+		02333D14234D5EB90083405F /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02333D13234D5EB90083405F /* Size.swift */; };
+		02333D16234D5EE60083405F /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02333D15234D5EE60083405F /* Point.swift */; };
+		02333D18234D68820083405F /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02333D17234D68820083405F /* Label.swift */; };
+		02333D1A234D69560083405F /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02333D19234D69560083405F /* ImageView.swift */; };
+		02333D1C234D6DCD0083405F /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02333D1B234D6DCD0083405F /* Color.swift */; };
+		02333D20234D7D600083405F /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02333D1F234D7D600083405F /* Layer.swift */; };
+		02333D22234D7F080083405F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02333D21234D7F080083405F /* ViewController.swift */; };
+		02333D24234D891C0083405F /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02333D23234D891C0083405F /* Operators.swift */; };
+		02333D26234D8C110083405F /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02333D25234D8C110083405F /* Font.swift */; };
+		02333D28234D8C600083405F /* NSObject+new.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02333D27234D8C600083405F /* NSObject+new.swift */; };
+		02333D2A234D96110083405F /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02333D29234D96110083405F /* Button.swift */; };
+		02333D2E2353F41C0083405F /* Constructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02333D2D2353F41C0083405F /* Constructor.swift */; };
+		02333D302353F5E20083405F /* PropelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02333D2F2353F5E20083405F /* PropelObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		02333CDB234D588A0083405F /* Propel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Propel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		02333CDE234D588A0083405F /* Propel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Propel.h; sourceTree = "<group>"; };
 		02333CDF234D588A0083405F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02333D0F234D59230083405F /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		02333D11234D5A1D0083405F /* Rect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rect.swift; sourceTree = "<group>"; };
+		02333D13234D5EB90083405F /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
+		02333D15234D5EE60083405F /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		02333D17234D68820083405F /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		02333D19234D69560083405F /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		02333D1B234D6DCD0083405F /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		02333D1F234D7D600083405F /* Layer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
+		02333D21234D7F080083405F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		02333D23234D891C0083405F /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Operators.swift; path = UI/Operators.swift; sourceTree = "<group>"; };
+		02333D25234D8C110083405F /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		02333D27234D8C600083405F /* NSObject+new.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+new.swift"; sourceTree = "<group>"; };
+		02333D29234D96110083405F /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		02333D2D2353F41C0083405F /* Constructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constructor.swift; sourceTree = "<group>"; };
+		02333D2F2353F5E20083405F /* PropelObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropelObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,9 +77,40 @@
 			isa = PBXGroup;
 			children = (
 				02333CDE234D588A0083405F /* Propel.h */,
+				02333D23234D891C0083405F /* Operators.swift */,
+				02333D2F2353F5E20083405F /* PropelObject.swift */,
+				02333D2D2353F41C0083405F /* Constructor.swift */,
+				02333D1E234D7D4E0083405F /* Graphics */,
+				02333D1D234D7D470083405F /* UI */,
 				02333CDF234D588A0083405F /* Info.plist */,
 			);
 			path = Propel;
+			sourceTree = "<group>";
+		};
+		02333D1D234D7D470083405F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				02333D1F234D7D600083405F /* Layer.swift */,
+				02333D29234D96110083405F /* Button.swift */,
+				02333D27234D8C600083405F /* NSObject+new.swift */,
+				02333D25234D8C110083405F /* Font.swift */,
+				02333D0F234D59230083405F /* View.swift */,
+				02333D21234D7F080083405F /* ViewController.swift */,
+				02333D1B234D6DCD0083405F /* Color.swift */,
+				02333D17234D68820083405F /* Label.swift */,
+				02333D19234D69560083405F /* ImageView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		02333D1E234D7D4E0083405F /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				02333D11234D5A1D0083405F /* Rect.swift */,
+				02333D13234D5EB90083405F /* Size.swift */,
+				02333D15234D5EE60083405F /* Point.swift */,
+			);
+			path = Graphics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,6 +156,7 @@
 				TargetAttributes = {
 					02333CDA234D588A0083405F = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -130,6 +192,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02333D12234D5A1D0083405F /* Rect.swift in Sources */,
+				02333D26234D8C110083405F /* Font.swift in Sources */,
+				02333D24234D891C0083405F /* Operators.swift in Sources */,
+				02333D14234D5EB90083405F /* Size.swift in Sources */,
+				02333D2E2353F41C0083405F /* Constructor.swift in Sources */,
+				02333D20234D7D600083405F /* Layer.swift in Sources */,
+				02333D22234D7F080083405F /* ViewController.swift in Sources */,
+				02333D28234D8C600083405F /* NSObject+new.swift in Sources */,
+				02333D1C234D6DCD0083405F /* Color.swift in Sources */,
+				02333D18234D68820083405F /* Label.swift in Sources */,
+				02333D302353F5E20083405F /* PropelObject.swift in Sources */,
+				02333D10234D59230083405F /* View.swift in Sources */,
+				02333D1A234D69560083405F /* ImageView.swift in Sources */,
+				02333D2A234D96110083405F /* Button.swift in Sources */,
+				02333D16234D5EE60083405F /* Point.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +338,7 @@
 		02333CE4234D588A0083405F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -278,6 +356,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.bd452.Propel;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -286,6 +365,7 @@
 		02333CE5234D588A0083405F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;

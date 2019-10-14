@@ -16,6 +16,8 @@ public extension Size {
     }
 }
 
+extension Size: Propel {}
+
 public func + (first: Size, second: Size) -> Size {
     return first.modify(width: second.width, height: second.height)
 }

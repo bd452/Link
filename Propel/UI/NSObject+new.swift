@@ -27,3 +27,5 @@ public extension NSObject {
         with(self)
     }
 }
+
+extension NSObject: Propel {}
