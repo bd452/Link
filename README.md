@@ -297,3 +297,22 @@ let vc = ViewController()
     })
     ...
 ```
+
+### TableViewController
+A table view controller which allows closures to be used for its dataSources (`cellForRowAtIndexPath`, `heightForRowAtIndexPath`, etc.) along with the closures from ViewController
+
+**Example:**
+```swift
+
+let tableView = TableViewController(style: .plain)
+    .numberOfSections(3)
+    .cell { (tableView, indexPath) in
+        let cell = UITableViewCell()
+            .backgroundColor([Color.red, Color.blue, Color.green][indexPath.section])
+        cell.textLabel?.text = "\(indexPath.row)"
+        cell.detailTextLabel?.text = "\(indexPath.section)"
+        return cell
+    }
+    .cellHeight { _,_ in 100 }
+    .numberOfRows { _, _ in 10 }
+```
