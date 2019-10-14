@@ -21,13 +21,13 @@ public class Constructor<type: Propel> {
     public init() {
         
     }
-    public convenience init(generator: @escaping constructor, construction: construction? = nil) {
+    public convenience init(_ generator: @escaping @autoclosure () -> type, _ construction: construction? = nil) {
         self.init()
         self.myInstanceGenerator = generator
         self.myConstruction = construction
     }
     
-    public convenience init(construction: @escaping construction) {
+    public convenience init(_ construction: @escaping construction) {
         self.init()
         self.myConstruction = construction
     }
@@ -40,10 +40,17 @@ public class Constructor<type: Propel> {
         }
     }
     
-    public class func construct(construction: @escaping construction) -> constructor {
+    public class func construct(_ construction: @escaping construction) -> constructor {
         return {
             let newInstance = type.init()
             construction(newInstance)
+            return newInstance
+        }
+    }
+    public class func generate(_ generator: @escaping @autoclosure () -> type, _ construction: construction? = nil) -> constructor {
+        return {
+            let newInstance = generator()
+            construction?(newInstance)
             return newInstance
         }
     }

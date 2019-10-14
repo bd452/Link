@@ -21,7 +21,7 @@ protocol Mutable {
 }
 
 public extension NSObject {
-
+    
     func mutate(_ mutation: (NSObject)->Void) -> Self {
         mutation(self)
         return self

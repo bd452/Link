@@ -16,5 +16,7 @@ public func ≠(first: AnyObject, second: AnyObject) -> Bool {
     return !first.isEqual(second)
 }
 
-
+public func bind(_ lower: CGFloat, _ upper: CGFloat, _ val: CGFloat) -> CGFloat {
+    return min(max(lower, val), upper)
+}
 

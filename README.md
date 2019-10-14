@@ -66,6 +66,14 @@ Propel is a different way to use UIKit to declare your user interfaces inline, w
         view.layer.masksToBounds = true
     })
  ````
+ You can also *technically* override self if you're more comfortable with that. It's also *technically* considered a bug to be able to do this, so use at your own risk?
+ ````
+ let l = View().mutate({`self` in 
+    let `self` = self as! View
+    self.layer.cornerRadius = 5
+    self.layer.masksToBounds = true
+ })
+ ````
  Ex 2:
  ````
  let l = View()
@@ -84,7 +92,61 @@ Propel is a different way to use UIKit to declare your user interfaces inline, w
          return layer
      }
  ````
+ ### Templates
+ Templates allow you to define reusable prefab instances of classes without subclassing
  
+ There are 2 types of template: one where you pass in your own initializer,  and one where the Constructor creates a new instance of your class for you,
+ 
+ **Creating your own instance:**
+ If you would like to create your own instance, then you create a new instance of the constructor with `Constructor<T>(T, construction: ((T)->Void)?)`, then call the 'construct' of that
+ ````
+ let constructor = Constructor<View>(View().frame(0,0,50,50).backgroundColor(.blue), 
+ { view in 
+ view.layer.cornerRadius = 5
+ }).construct
+ ````
+ Or alternatively, use the class method `Constructor<T>(T, ((T)->Void)?`), which directly returns a construct
+ ````
+ let constructor = Constructor<View>.generate(View().frame(0,0,50,50).backgroundColor(.blue))
+ ````
+ If you don't need to access any child properties (or if you use mutators), you can leave off the last parameter
+ ````
+ let constructor = Constructor<View>(View().frame(0,0,50,50).backgroundColor(.blue))
+ ````
+ Then you can call the construct to generate a new instance with the given parameters
+ ```
+ let myView1 = construct()
+ let myView2 = construct()
+ let myView3 = construct()
+ ````
+ The above views, myView1, myView2, and myView3 all will be initialized with the same properties
+ 
+ You can also chain the initializer modifiers off of these constructors, like so
+ ````
+ let myView1 = construct().backgroundColor(.red)
+ let myView2 = construct().backgroundColor(.green)
+ let myView3 = construct().backgroundColor(.blue)
+ ````
+ **Using a constructed instance:**
+ If you want the Constructor to make the instance for you, you just create a new instance of the constructor with `Constructor<T>((T) -> Void)`, and get the 'construct' of that:
+ ````
+ let template = Constructor<View>({ view in
+ view.frame = Rect(0,0,50,50)
+ view.backgroundColor = .blue
+ view.layer.cornerRadius = 4
+ }.construct
+ ````
+ Or alternatively, just call the class method `Constructor<T>.construct((T)->Void)`
+ ````
+ let construct = Constructor<View>.construct({ view in 
+ view.frame = Rect(0,0,50,50)
+ view.backgroundColor = .blue
+ view.layer.cornerRadius = 4
+ }
+ ````
+ Then of course, call the construct to generate your views
+ `let view = construct()`
+
  
  ## New "Types":
  
@@ -104,17 +166,64 @@ Propel is a different way to use UIKit to declare your user interfaces inline, w
  **Example:**
   `let label = Label().origin(0,0).size(50,50).font(Font("Avenir", 14))`
   ### Button
-  A button. Allows for setting properties inline
+  A button. Allows for setting properties inline. Also has a method `withTitleLabel` that allows for inline setting of properties on the title label
   **Example:**
-  `leb `
- 
- ## Example usage:
- ### Templates:
- ````
- // Template
- let myView_Template = Constructor<View>(construction: { view in
-    view.frame = Rect(0,0,50,50)
-    view.backgroundColor = .blue
-    view.layer.cornerRadius = 4
- }
+  ```let button = Button()
+    .origin(0,0)
+    .size(100,20)
+    .title("Title")
+    .withTitleLabel({ label in 
+        label.font = Font("Avenir")
+        label.textColor = .blue
+    })
+  ````
+  ### ImageView
+  An image view. Allows for setting properties inline. Also has a method `withImage` that allows for inline setting of properties of the UIImage object
+  **Example:**
+  ```
+  let imageView = ImageView().image(UIImage(named:"Image.png"))
+  ```
+  
+  ### Font
+  Font object. For now, just has an initializer without the label
+  
+  ### Color
+  A color with lots of cool accessors and inline setters. 
+   * Has methods to get RGBa and HSBa color components (`Color.rgba()`, which returns a tuple with the RGB components, and `Color.hsba()`, which does the same for HSB)
+   * Chainable initializers, which allow you to modify any aspect of the color (rgb or hsb)
+**Example:**
 ````
+let Color = Color.blue.red(0.5).brighten(0.1)
+````
+That will initialize the color blue (#0000FF), then change the red space to 0.5 (#0027FF), then brighten by 0.1(#729FF8)
+
+
+### ViewController
+A view controller which allows for closures to be used for its lifecycle methods (`viewDidLoad`, `viewDidLayoutSubviews`, etc.) per-instance, rather than having to subclass
+Also has a method `withView` that allows for inline setting of properties of the controller's view
+**Example:**
+```
+let vc = ViewController()
+    .withView({ view in
+
+    })
+    .didLoad({ view in
+
+    })
+    .didAppear({ appeared in
+
+    })
+    .didLayoutSubviews({
+
+    })
+    .didDisappear({ disappeared in
+
+    })
+    .prepareforSegue({ (segue, sender) in
+
+    })
+    ...
+```
+
+ 
+ 

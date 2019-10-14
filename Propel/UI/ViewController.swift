@@ -17,6 +17,7 @@ open class ViewController: UIViewController {
     var onDidDisappear: ((Bool) -> Void)?
     var onWillLayoutSubviews: (() -> Void)?
     var onDidLayoutSubviews: (() -> Void)?
+    var onPrepareForSegue:((UIStoryboardSegue, Any) -> Void)?
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,6 +89,10 @@ public extension ViewController {
     }
     func didLayoutSubviews(_ closure: @escaping () -> Void) -> Self {
         self.onDidLayoutSubviews = closure
+        return self
+    }
+    func prepareforSegue(_ closure: @escaping ((_ segue: UIStoryboardSegue, _ sender: Any) -> Void)) -> Self {
+        self.onPrepareForSegue = closure
         return self
     }
     func then(_ aa:((ViewController) -> Void)?) -> Self {

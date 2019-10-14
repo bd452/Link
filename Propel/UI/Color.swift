@@ -50,9 +50,17 @@ public extension Color {
         let hsba = self.hsba
         return Color(hue: hsba.hue, saturation: saturation, brightness: hsba.brightness, alpha: hsba.alpha)
     }
+    func saturate(_ delta: CGFloat) -> Color {
+        let brightness = self.hsba.brightness
+        return self.brightness(brightness + delta)
+    }
     func brightness(_ brightness: CGFloat) -> Color {
         let hsba = self.hsba
         return Color(hue: hsba.hue, saturation: hsba.saturation, brightness: brightness, alpha: hsba.alpha)
+    }
+    func brighten(_ delta: CGFloat) -> Color {
+        let brightness = self.hsba.brightness
+        return self.brightness(bind(0, 1, brightness))
     }
     func red(_ red: CGFloat) -> Color {
         let rgba = self.rgba

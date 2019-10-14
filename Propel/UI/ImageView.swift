@@ -21,9 +21,7 @@ public extension ImageView {
     func image(_ image: UIImage) -> Self {
         self.image = image
         return self
-    }
-    func withImage(_ image: (UIImage?) -> Void) {
-        image(self.image)
+        
     }
     func withImage(_ image: (UIImage?) -> Void) -> Self {
         image(self.image)
