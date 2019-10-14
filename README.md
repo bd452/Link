@@ -43,21 +43,32 @@ Propel is a different way to use UIKit to declare your user interfaces inline, w
  
  For example, a Button's label can be accessed using a closure in the constructor with `Button.withTitleLabel((Label) -> Void))` for finer-grained access, or to change properties that aren't included in Propel
  Ex:
- ````
+ ```swift
  Button()
     .frame(0,0,0,0)
     .withTitleLabel({ label in 
         label.shadowColor = Color(0x111111)
         label.shadowOffset = Size(5,5)
     })
- ````
+ ```
  There are also 3 generic mutator functions that will work to change any property of any class that inherits from NSObject during construction.
- * `NSObject.mutate((NSObject)->Void)`: For mutating multiple properties
- * `NSObject.mutate<T>(T.Type, String, (T)->Void)`: For mutating a single property
- * `NSObject.mutate<T>(T.Type, String, (T)->T)`: For replacing a property with a new instance
-  These look a bit messier than the designated mutators, but they get the job done.
+ For mutating multiple properties:
+ ```swift
+  NSObject.mutate((NSObject)->Void)
+  ```
+  For mutating a single property:
+ ```swift
+ NSObject.mutate<T>(T.Type, String, (T)->Void)
+ ```
+ For replacing a property with a new instance:
+ ```swift
+ NSObject.mutate<T>(T.Type, String, (T)->T)
+ ```
+ 
+These look a bit messier than the designated mutators, but they get the job done.
+
  Ex 1 – :
- ````
+ ```swift
  let l = View()
     .frame(0,0,10,10)
     .mutate({ view in 
@@ -65,33 +76,33 @@ Propel is a different way to use UIKit to declare your user interfaces inline, w
         view.layer.cornerRadius = 5
         view.layer.masksToBounds = true
     })
- ````
+ ```
  You can also *technically* override self if you're more comfortable with that. It's also *technically* considered a bug to be able to do this, so use at your own risk?
- ````
+ ```swift
  let l = View().mutate({`self` in 
     let `self` = self as! View
     self.layer.cornerRadius = 5
     self.layer.masksToBounds = true
  })
- ````
+ ```
  Ex 2:
- ````
+ ```swift
  let l = View()
     .frame(0,0,10,10)
     .mutate(CALayer.self, "layer") { (layer)->Void in
         layer.cornerRadius = 5
         layer.masksToBounds = true
     }
- ````
+ ```
  Ex 3:
- ````
+ ```swift
  let l = View()
      .frame(0,0,10,10)
      .mutate(CALayer.self, "layer") { (_)->CALayer in
          let layer = CALayer()
          return layer
      }
- ````
+ ```
  ### Templates
  Templates allow you to define reusable prefab instances of classes without subclassing
  
@@ -99,53 +110,55 @@ Propel is a different way to use UIKit to declare your user interfaces inline, w
  
  **Creating your own instance:**
  If you would like to create your own instance, then you create a new instance of the constructor with `Constructor<T>(T, construction: ((T)->Void)?)`, then call the 'construct' of that
- ````
+ ```swift
  let constructor = Constructor<View>(View().frame(0,0,50,50).backgroundColor(.blue), 
  { view in 
  view.layer.cornerRadius = 5
  }).construct
- ````
- Or alternatively, use the class method `Constructor<T>(T, ((T)->Void)?`), which directly returns a construct
- ````
- let constructor = Constructor<View>.generate(View().frame(0,0,50,50).backgroundColor(.blue))
- ````
- If you don't need to access any child properties (or if you use mutators), you can leave off the last parameter
- ````
- let constructor = Constructor<View>(View().frame(0,0,50,50).backgroundColor(.blue))
- ````
- Then you can call the construct to generate a new instance with the given parameters
  ```
+ Or alternatively, use the class method `Constructor<T>(T, ((T)->Void)?`), which directly returns a construct
+ ```swift
+ let constructor = Constructor<View>.generate(View().frame(0,0,50,50).backgroundColor(.blue))
+ ```
+ If you don't need to access any child properties (or if you use mutators), you can leave off the last parameter
+ ```swift
+ let constructor = Constructor<View>(View().frame(0,0,50,50).backgroundColor(.blue))
+ ```
+ Then you can call the construct to generate a new instance with the given parameters
+ ```swift
  let myView1 = construct()
  let myView2 = construct()
  let myView3 = construct()
- ````
+ ```
  The above views, myView1, myView2, and myView3 all will be initialized with the same properties
  
  You can also chain the initializer modifiers off of these constructors, like so
- ````
+ ```swift
  let myView1 = construct().backgroundColor(.red)
  let myView2 = construct().backgroundColor(.green)
  let myView3 = construct().backgroundColor(.blue)
- ````
+ ```
  **Using a constructed instance:**
  If you want the Constructor to make the instance for you, you just create a new instance of the constructor with `Constructor<T>((T) -> Void)`, and get the 'construct' of that:
- ````
+ ```swift
  let template = Constructor<View>({ view in
  view.frame = Rect(0,0,50,50)
  view.backgroundColor = .blue
  view.layer.cornerRadius = 4
  }.construct
- ````
+ ```
  Or alternatively, just call the class method `Constructor<T>.construct((T)->Void)`
- ````
+ ```swift
  let construct = Constructor<View>.construct({ view in 
  view.frame = Rect(0,0,50,50)
  view.backgroundColor = .blue
  view.layer.cornerRadius = 4
  }
- ````
+ ```
  Then of course, call the construct to generate your views
- `let view = construct()`
+ ```swift
+ let view = construct()
+ ```
 
  
  ## New "Types":
@@ -159,16 +172,24 @@ Propel is a different way to use UIKit to declare your user interfaces inline, w
  
  ### View
  A view. Allows for setting properties inline
+ 
  **Example:**
- `let view = View().origin(0,0).size(50,50).backgroundColor(.blue).`
+ ```swift
+ let view = View().origin(0,0).size(50,50).backgroundColor(.blue).
+ ```
  ### Label
  A label. Allows for setting properties inline
+ 
  **Example:**
-  `let label = Label().origin(0,0).size(50,50).font(Font("Avenir", 14))`
+  ```swift
+  let label = Label().origin(0,0).size(50,50).font(Font("Avenir", 14))
+  ```
   ### Button
   A button. Allows for setting properties inline. Also has a method `withTitleLabel` that allows for inline setting of properties on the title label
+  
   **Example:**
-  ```let button = Button()
+  ```swift
+  let button = Button()
     .origin(0,0)
     .size(100,20)
     .title("Title")
@@ -179,8 +200,9 @@ Propel is a different way to use UIKit to declare your user interfaces inline, w
   ````
   ### ImageView
   An image view. Allows for setting properties inline. Also has a method `withImage` that allows for inline setting of properties of the UIImage object
+  
   **Example:**
-  ```
+  ```swift
   let imageView = ImageView().image(UIImage(named:"Image.png"))
   ```
   
@@ -192,9 +214,9 @@ Propel is a different way to use UIKit to declare your user interfaces inline, w
    * Has methods to get RGBa and HSBa color components (`Color.rgba()`, which returns a tuple with the RGB components, and `Color.hsba()`, which does the same for HSB)
    * Chainable initializers, which allow you to modify any aspect of the color (rgb or hsb)
 **Example:**
-````
+```swift
 let Color = Color.blue.red(0.5).brighten(0.1)
-````
+```
 That will initialize the color blue (#0000FF), then change the red space to 0.5 (#0027FF), then brighten by 0.1(#729FF8)
 
 
@@ -202,7 +224,7 @@ That will initialize the color blue (#0000FF), then change the red space to 0.5 
 A view controller which allows for closures to be used for its lifecycle methods (`viewDidLoad`, `viewDidLayoutSubviews`, etc.) per-instance, rather than having to subclass
 Also has a method `withView` that allows for inline setting of properties of the controller's view
 **Example:**
-```
+```swift
 let vc = ViewController()
     .withView({ view in
 
