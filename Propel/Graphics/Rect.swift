@@ -14,6 +14,9 @@ public extension Rect {
     func modify(x: CGFloat = 0, y: CGFloat = 0, width: CGFloat = 0, height: CGFloat = 0) -> Rect {
         return Rect(x: self.minX + x, y: self.minY + y, width: self.width + width, height: self.height + height)
     }
+    mutating func mutate(x: CGFloat = 0, y: CGFloat = 0, width: CGFloat = 0, height: CGFloat = 0) {
+        self = self.modify(x: 0, y: y, width: width, height: height)
+    }
     func dOrigin(_ origin: Point) -> Rect {
         var r = self
         r.origin += origin

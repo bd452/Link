@@ -23,6 +23,7 @@
 		02333D2A234D96110083405F /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02333D29234D96110083405F /* Button.swift */; };
 		02333D2E2353F41C0083405F /* Constructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02333D2D2353F41C0083405F /* Constructor.swift */; };
 		02333D302353F5E20083405F /* PropelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02333D2F2353F5E20083405F /* PropelObject.swift */; };
+		02F03E2B23543CAE0038E596 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F03E2A23543CAE0038E596 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		02333D29234D96110083405F /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		02333D2D2353F41C0083405F /* Constructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constructor.swift; sourceTree = "<group>"; };
 		02333D2F2353F5E20083405F /* PropelObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropelObject.swift; sourceTree = "<group>"; };
+		02F03E2A23543CAE0038E596 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				02333D25234D8C110083405F /* Font.swift */,
 				02333D0F234D59230083405F /* View.swift */,
 				02333D21234D7F080083405F /* ViewController.swift */,
+				02F03E2A23543CAE0038E596 /* TableViewController.swift */,
 				02333D1B234D6DCD0083405F /* Color.swift */,
 				02333D17234D68820083405F /* Label.swift */,
 				02333D19234D69560083405F /* ImageView.swift */,
@@ -203,6 +206,7 @@
 				02333D1C234D6DCD0083405F /* Color.swift in Sources */,
 				02333D18234D68820083405F /* Label.swift in Sources */,
 				02333D302353F5E20083405F /* PropelObject.swift in Sources */,
+				02F03E2B23543CAE0038E596 /* TableViewController.swift in Sources */,
 				02333D10234D59230083405F /* View.swift in Sources */,
 				02333D1A234D69560083405F /* ImageView.swift in Sources */,
 				02333D2A234D96110083405F /* Button.swift in Sources */,

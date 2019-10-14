@@ -8,7 +8,7 @@
 
 import UIKit
 
-typealias Layer = CALayer
+public typealias Layer = CALayer
 
 public extension Layer {
     func cornerRadius(_ radius: CGFloat) -> Self {

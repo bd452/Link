@@ -51,8 +51,20 @@ public extension View {
         self.frame <- Point(x,y)
         return self
     }
+    func translated(x: CGFloat = 0, y: CGFloat = 0) -> Self {
+        self.frame = self.frame.dOrigin(Point(x: x, y: y))
+        return self
+    }
+    func enlarged(width: CGFloat = 0, height: CGFloat = 0) -> Self {
+        self.frame = self.frame.dSize(Size(width: width, height: height))
+        return self
+    }
     func backgroundColor(_ color: Color) -> Self {
         self.backgroundColor = color
+        return self
+    }
+    func withLayer(_ layer: (Layer) -> Void) -> Self {
+        layer(self.layer)
         return self
     }
 }
