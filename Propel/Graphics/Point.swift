@@ -12,7 +12,10 @@ public typealias Point = CGPoint
 
 public extension Point {
     func modify(x: CGFloat = 0, y: CGFloat = 0) -> Point {
-        return CGPoint(x: self.x + x, y: self.y + y)
+        return Point(x: self.x + x, y: self.y + y)
+    }
+    init(_ x: CGFloat, _ y: CGFloat) {
+        self.init(x: x, y: y)
     }
 }
 extension Point: Propel {}

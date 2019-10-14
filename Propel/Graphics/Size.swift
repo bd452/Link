@@ -14,6 +14,9 @@ public extension Size {
     func modify(width: CGFloat = 0, height: CGFloat = 0) -> Size {
         return Size(width: self.width + width, height: self.height + height)
     }
+    init(_ width: CGFloat, _ height: CGFloat) {
+        self.init(width: width, height: height)
+    }
 }
 
 extension Size: Propel {}

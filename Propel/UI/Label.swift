@@ -19,7 +19,7 @@ public extension Label {
         self.text = text
         return self
     }
-    func font(_ font: Font) -> Self {
+    func font(_ font: Font?) -> Self {
         self.font = font
         return self
     }

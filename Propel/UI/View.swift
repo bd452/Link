@@ -39,8 +39,16 @@ public extension View {
         self.frame <- size
         return self
     }
+    func size(_ width: CGFloat, height: CGFloat) -> Self {
+        self.frame <- Size(width, height)
+        return self
+    }
     func origin(_ origin: Point) -> Self {
         self.frame <- origin
+        return self
+    }
+    func origin(_ x: CGFloat, _ y: CGFloat) -> Self {
+        self.frame <- Point(x,y)
         return self
     }
     func backgroundColor(_ color: Color) -> Self {
