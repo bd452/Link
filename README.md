@@ -196,6 +196,23 @@ These look a bit messier than the designated mutators, but they get the job done
  ### Point
  A point (x, y). Allows for inline modification of x and y coordinates
  
+ ### AtrributedString
+ An attributed string that allows for inline setting of attributes. Currently supports color, font, and underline styles.
+ 
+ **Example:**
+ ```swift
+ let blueText = "blue Text ".attributed
+     .color(.blue)
+     .font(Font("Avenir"))
+ let redText = "red Text".attributed
+     .color(.red)
+     .font(Font("Avenir"))
+ let combinedText = blueText + redText
+ ```
+ In this scenario, combinedText will look like 
+ ![Blue Red](https://github.com/bd452/Propel/raw/master/Sources/bluered.png "Blue Red")
+ 
+ 
  ### View
  A view. Allows for setting properties inline
  
