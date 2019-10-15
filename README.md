@@ -1,10 +1,10 @@
 
-<h1 align="center">Propel</h1>
+<h1 align="center">Link</h1>
 <p align="center">Semi-Declarative user interface programming for Swift</p>
 
 ----
 
-Propel is a different way to use UIKit to declare your user interfaces inline, without having to use a million different property setters for every view.
+Link is a different way to use UIKit to declare your user interfaces inline, without having to use a million different property setters for every view.
 
 # Features:
  * Create templates for initializing duplicate copies of the same view (without subclassing)
@@ -22,7 +22,7 @@ Propel is a different way to use UIKit to declare your user interfaces inline, w
  label.text = "Hello World"
  view.addSubview(label)
  ```
- With Propel, the same label could be declared as:
+ With Link, the same label could be declared as:
  ```swift
  let myLabel = Label()
      .frame(0,0,100,20)
@@ -43,7 +43,7 @@ Propel is a different way to use UIKit to declare your user interfaces inline, w
  ## Modify properties of properties while declaring an instance
  For some types, there are designated mutators to change properties of members within your declaration
  
- For example, a Button's label can be accessed using a closure in the constructor with `Button.withTitleLabel` for finer-grained access, or to change properties that aren't included in Propel
+ For example, a Button's label can be accessed using a closure in the constructor with `Button.withTitleLabel` for finer-grained access, or to change properties that aren't included in Link
  
  **Ex:**
  ```swift
@@ -112,7 +112,7 @@ These look a bit messier than the designated mutators, but they get the job done
  
  There are 2 types of template: one where you pass in your own initializer, and one where the Constructor creates a new instance of your class for you.
  
- Because of Propel's chained property initializers and mutators, it is probably easier to generate your own instance the majority of the time. However, if you don't want to use the chained initializers, you can use the pre-generated instance.
+ Because of Link's chained property initializers and mutators, it is probably easier to generate your own instance the majority of the time. However, if you don't want to use the chained initializers, you can use the pre-generated instance.
  
  ### Creating your own instance
  If you would like to create your own instance, then you create a new instance of the constructor with `Constructor<T>(T, construction: ((T)->Void)?)`
@@ -159,7 +159,7 @@ These look a bit messier than the designated mutators, but they get the job done
  let constructor = Constructor<Label>(Label().frame(0,0,50,50).text("Hello World").color(.blue))
  let construct = constructor.construct
  let myLabel1 = construct()
- let myLabel2 = construct().text("Propel")
+ let myLabel2 = construct().text("Link")
  let myLabel3 = construct().color(.red)
  ```
  
@@ -210,7 +210,7 @@ These look a bit messier than the designated mutators, but they get the job done
  let combinedText = blueText + redText
  ```
  In this scenario, combinedText will look like 
- ![Blue Red](https://github.com/bd452/Propel/raw/master/Sources/bluered.png "Blue Red")
+ ![Blue Red](https://github.com/bd452/Link/raw/master/Sources/bluered.png "Blue Red")
  
  
  ### View
