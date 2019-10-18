@@ -81,6 +81,46 @@ public extension View {
     }
 }
 
+public extension View {
+    func recognizeGesture(recognizer: UIGestureRecognizer, action: @escaping (UIView?)->Void) {
+        recognizer.addAction(action: action(self))
+        self.addGestureRecognizer(recognizer)
+    }
+}
+
+
+/// For Interface Builder
+@IBDesignable
+public extension View {
+    @IBInspectable var borderColor: UIColor {
+        get {
+            return UIColor(cgColor: self.layer.borderColor ?? UIColor.clear.cgColor)
+        }
+        set {
+            self.layer.borderColor = newValue.cgColor
+        }
+    }
+    @IBInspectable var borderWidth: CGFloat {
+        get {
+            return self.layer.borderWidth
+        }
+        set {
+            self.layer.borderWidth = newValue
+        }
+    }
+    @IBInspectable var cornerRadius: CGFloat {
+        get {
+            return self.layer.cornerRadius
+        }
+        set {
+            self.layer.cornerRadius = newValue
+        }
+    }
+    open override func prepareForInterfaceBuilder() {
+        self.layoutSubviews()
+    }
+}
+
 /// For animation
 
 public extension View {

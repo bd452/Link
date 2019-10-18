@@ -24,7 +24,9 @@
 		02333D2E2353F41C0083405F /* Constructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02333D2D2353F41C0083405F /* Constructor.swift */; };
 		02333D302353F5E20083405F /* LinkObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02333D2F2353F5E20083405F /* LinkObject.swift */; };
 		02F03E2B23543CAE0038E596 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F03E2A23543CAE0038E596 /* TableViewController.swift */; };
-		04375C0B2354C104008B33BE /* UIGestureRecognizer+Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04375C0A2354C104008B33BE /* UIGestureRecognizer+Closures.swift */; };
+		0415C3D123560885008D5BD4 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415C3D023560885008D5BD4 /* Timer.swift */; };
+		04375C0B2354C104008B33BE /* SelectorClosures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04375C0A2354C104008B33BE /* SelectorClosures.swift */; };
+		044CD2852357718800318074 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CD2842357718800318074 /* String.swift */; };
 		046A03F4235507CD0046C243 /* AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046A03F3235507CD0046C243 /* AttributedString.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +50,9 @@
 		02333D2D2353F41C0083405F /* Constructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constructor.swift; sourceTree = "<group>"; };
 		02333D2F2353F5E20083405F /* LinkObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkObject.swift; sourceTree = "<group>"; };
 		02F03E2A23543CAE0038E596 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		04375C0A2354C104008B33BE /* UIGestureRecognizer+Closures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIGestureRecognizer+Closures.swift"; sourceTree = "<group>"; };
+		0415C3D023560885008D5BD4 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		04375C0A2354C104008B33BE /* SelectorClosures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectorClosures.swift; sourceTree = "<group>"; };
+		044CD2842357718800318074 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		046A03F3235507CD0046C243 /* AttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,7 +90,9 @@
 				02333D23234D891C0083405F /* Operators.swift */,
 				02333D2F2353F5E20083405F /* LinkObject.swift */,
 				02333D2D2353F41C0083405F /* Constructor.swift */,
-				04375C0A2354C104008B33BE /* UIGestureRecognizer+Closures.swift */,
+				04375C0A2354C104008B33BE /* SelectorClosures.swift */,
+				0415C3D023560885008D5BD4 /* Timer.swift */,
+				044CD2842357718800318074 /* String.swift */,
 				02333D1E234D7D4E0083405F /* Graphics */,
 				02333D1D234D7D470083405F /* UI */,
 				02333CDF234D588A0083405F /* Info.plist */,
@@ -204,12 +210,14 @@
 			files = (
 				046A03F4235507CD0046C243 /* AttributedString.swift in Sources */,
 				02333D12234D5A1D0083405F /* Rect.swift in Sources */,
+				044CD2852357718800318074 /* String.swift in Sources */,
 				02333D26234D8C110083405F /* Font.swift in Sources */,
-				04375C0B2354C104008B33BE /* UIGestureRecognizer+Closures.swift in Sources */,
+				04375C0B2354C104008B33BE /* SelectorClosures.swift in Sources */,
 				02333D24234D891C0083405F /* Operators.swift in Sources */,
 				02333D14234D5EB90083405F /* Size.swift in Sources */,
 				02333D2E2353F41C0083405F /* Constructor.swift in Sources */,
 				02333D20234D7D600083405F /* Layer.swift in Sources */,
+				0415C3D123560885008D5BD4 /* Timer.swift in Sources */,
 				02333D22234D7F080083405F /* ViewController.swift in Sources */,
 				02333D28234D8C600083405F /* NSObject+new.swift in Sources */,
 				02333D1C234D6DCD0083405F /* Color.swift in Sources */,

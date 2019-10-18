@@ -39,13 +39,22 @@ public extension Button {
         self.addTarget(target, action: action, for: events)
         return self
     }
-    func action(_ action: @escaping (UIView?) -> Void, forControlEvents events: UIControl.Event) -> Self {
-        let sel = ActionSelector(action)
-        self.addTarget(sel, action: #selector(ActionSelector.action(sender:)), for: events)
+    func on(_ events: UIControl.Event, _ action: @escaping () -> Void) -> Self {
+        let sel = AutoSelector(action)
+        self.addTarget(sel, action: sel.do, for: events)
         return self
     }
-    func addAction(_ action: @escaping (UIView?) -> Void, forControlEvents events: UIControl.Event) {
-        let sel = ActionSelector(action)
-        self.addTarget(sel, action: #selector(ActionSelector.action(sender:)), for: events)
+//    func action(_ action: @autoclosure @escaping ()->Void, forControlEvents events: UIControl.Event) -> Self {
+//        return self.action(action, forControlEvents: events)
+//    }
+    func on(_ events: UIControl.Event, _ action: @autoclosure @escaping () -> Void) -> Self {
+        return self.on(events,action)
+    }
+    func addAction(_ action: @escaping () -> Void, forControlEvents events: UIControl.Event) {
+        let sel = AutoSelector(action)
+        self.addTarget(sel, action: sel.do, for: events)
+    }
+    func addAction(_ action: @autoclosure @escaping () -> Void, forControlEvents events: UIControl.Event) {
+        self.addAction(action, forControlEvents: events)
     }
 }

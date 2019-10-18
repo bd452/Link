@@ -10,14 +10,14 @@ import UIKit
 
 open class ViewController: UIViewController {
 
-    var onDidLoad: ((View?) -> Void)?
-    var onWillAppear: ((Bool) -> Void)?
-    var onWillDisappear: ((Bool) -> Void)?
-    var onDidAppear: ((Bool) -> Void)?
-    var onDidDisappear: ((Bool) -> Void)?
-    var onWillLayoutSubviews: (() -> Void)?
-    var onDidLayoutSubviews: (() -> Void)?
-    var onPrepareForSegue:((UIStoryboardSegue, Any) -> Void)?
+    public var onDidLoad: ((View?) -> Void)?
+    public var onWillAppear: ((Bool) -> Void)?
+    public var onWillDisappear: ((Bool) -> Void)?
+    public var onDidAppear: ((Bool) -> Void)?
+    public var onDidDisappear: ((Bool) -> Void)?
+    public var onWillLayoutSubviews: (() -> Void)?
+    public var onDidLayoutSubviews: (() -> Void)?
+    public var onPrepareForSegue:((UIStoryboardSegue, Any) -> Void)?
     
     open override func viewDidLoad() {
         super.viewDidLoad()

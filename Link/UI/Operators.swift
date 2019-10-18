@@ -12,6 +12,12 @@ infix operator <-;
 
 infix operator ≠;
 
+postfix operator ¿;
+
+postfix public func ¿(arg: Bool?) -> Bool {
+    return arg ?? false
+}
+
 public func ≠(first: AnyObject, second: AnyObject) -> Bool {
     return !first.isEqual(second)
 }
