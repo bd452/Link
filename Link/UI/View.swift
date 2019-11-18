@@ -81,6 +81,21 @@ public extension View {
     }
 }
 
+@IBDesignable
+public extension View {
+    @IBInspectable var cornerRadius: CGFloat {
+        get {
+            return self.layer.cornerRadius
+        }
+        set {
+            self.layer.cornerRadius = newValue
+        }
+    }
+    open override func prepareForInterfaceBuilder() {
+        self.layoutSubviews()
+    }
+}
+
 /// For animation
 
 public extension View {

@@ -21,6 +21,10 @@ public extension AttributedString {
         self.addAttribute(.foregroundColor, value: color, range: NSRange(location: 0, length: self.length))
         return self
     }
+    func kerning(_ amount: CGFloat) -> Self {
+        self.addAttribute(.kern, value: amount, range: NSRange(location: 0, length: self.length))
+        return self
+    }
     func underlineStyle(_ style: NSUnderlineStyle) -> Self {
         self.addAttribute(.underlineStyle, value: style.rawValue, range: NSRange(location: 0, length: self.length))
         return self

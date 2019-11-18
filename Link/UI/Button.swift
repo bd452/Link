@@ -19,6 +19,10 @@ public extension Button {
         self.setTitleColor(color, for: state)
         return self
     }
+    func tintColor(_ color: Color) -> Self {
+        self.tintColor = color
+        return self
+    }
     func withTitleLabel(_ label: (Label?)->Void) -> Self {
         label(self.titleLabel)
         return self
@@ -41,11 +45,13 @@ public extension Button {
     }
     func action(_ action: @escaping (UIView?) -> Void, forControlEvents events: UIControl.Event) -> Self {
         let sel = ActionSelector(action)
+        set(sel, for: "action")
         self.addTarget(sel, action: #selector(ActionSelector.action(sender:)), for: events)
         return self
     }
     func addAction(_ action: @escaping (UIView?) -> Void, forControlEvents events: UIControl.Event) {
         let sel = ActionSelector(action)
+        set(sel, for: "action")
         self.addTarget(sel, action: #selector(ActionSelector.action(sender:)), for: events)
     }
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class ActionSelector {
+@objc public class ActionSelector: NSObject {
     var targetClosure: (UIView?) -> Void
     init(_ targetClosure: @escaping (UIView?) -> Void) {
         self.targetClosure = targetClosure
@@ -21,15 +21,21 @@ public class ActionSelector {
             self.targetClosure(nil)
         }
     }
+    @objc public let selector = #selector(action(sender:))
+//    @objc public let selector:Selector = {
+//        #selector(action(sender:))
+//    }()
 }
 
 public extension UIGestureRecognizer {
     convenience init(action: @escaping (UIView?) -> Void) {
         let delegate = ActionSelector(action)
-        self.init(target: delegate, action: #selector(ActionSelector.action(sender:)))
+        self.init(target: delegate, action: delegate.selector)
+        set(delegate, for: "action")
     }
     func addAction(action: @escaping (UIView?) -> Void) {
         let delegate = ActionSelector(action)
-        self.addTarget(delegate, action: #selector(ActionSelector.action(sender:)))
+        self.addTarget(delegate, action: delegate.selector)
+        set(delegate, for: "action")
     }
 }

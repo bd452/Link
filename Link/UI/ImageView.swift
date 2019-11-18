@@ -27,4 +27,8 @@ public extension ImageView {
         image(self.image)
         return self
     }
+    func tinted(_ color: Color) -> Self {
+        self.tintColor = color
+        return self
+    }
 }
