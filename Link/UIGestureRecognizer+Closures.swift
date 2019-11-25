@@ -16,8 +16,7 @@ import Foundation
     @objc func action(sender: UIView? = nil) {
         if sender != nil {
             self.targetClosure(sender)
-        }
-        else {
+        } else {
             self.targetClosure(nil)
         }
     }

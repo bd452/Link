@@ -10,8 +10,6 @@ import Foundation
 
 public typealias AttributedString = NSMutableAttributedString
 
-
-
 public extension AttributedString {
     func font(_ font: UIFont) -> Self {
         self.addAttribute(.font, value: font, range: NSRange(location: 0, length: self.length))
@@ -48,5 +46,3 @@ public extension String {
         return AttributedString(string: self)
     }
 }
-
-

@@ -15,4 +15,18 @@ public extension Layer {
         self.cornerRadius = radius
         return self
     }
+    
+    func animate(property: String, from: Any, to: Any, duration: TimeInterval, timingFunction: CAMediaTimingFunction, completion: (()->Void)? = nil) {
+        CATransaction.begin()
+        let animation = CABasicAnimation(keyPath: property)
+        animation.fromValue = from
+        animation.toValue = to
+        animation.duration = duration
+        animation.timingFunction = timingFunction
+        animation.isRemovedOnCompletion = true
+        CATransaction.setCompletionBlock(completion)
+        self.add(animation, forKey: self.description+property)
+        CATransaction.commit()
+    }
 }
+

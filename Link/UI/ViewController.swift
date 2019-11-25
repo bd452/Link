@@ -17,8 +17,8 @@ open class ViewController: UIViewController {
     var onDidDisappear: ((Bool) -> Void)?
     var onWillLayoutSubviews: (() -> Void)?
     var onDidLayoutSubviews: (() -> Void)?
-    var onPrepareForSegue:((UIStoryboardSegue, Any) -> Void)?
-    
+    var onPrepareForSegue: ((UIStoryboardSegue, Any) -> Void)?
+
     open override func viewDidLoad() {
         super.viewDidLoad()
         onDidLoad?(self.view)
@@ -48,8 +48,6 @@ open class ViewController: UIViewController {
         super.viewDidLayoutSubviews()
         onDidLayoutSubviews?()
     }
-    
-    
 
     /*
     // MARK: - Navigation
@@ -95,11 +93,11 @@ public extension ViewController {
         self.onPrepareForSegue = closure
         return self
     }
-    func then(_ aa:((ViewController) -> Void)?) -> Self {
+    func then(_ aa: ((ViewController) -> Void)?) -> Self {
         aa?(self)
         return self
     }
-    func withView(_ view: (View)->Void) -> Self {
+    func withView(_ view: (View) -> Void) -> Self {
         view(self.view)
         return self
     }

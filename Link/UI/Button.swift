@@ -23,7 +23,7 @@ public extension Button {
         self.tintColor = color
         return self
     }
-    func withTitleLabel(_ label: (Label?)->Void) -> Self {
+    func withTitleLabel(_ label: (Label?) -> Void) -> Self {
         label(self.titleLabel)
         return self
     }
@@ -31,7 +31,7 @@ public extension Button {
         self.titleLabel?.font = font
         return self
     }
-    func image(_ image: UIImage, forState state:UIControl.State = .normal) -> Self {
+    func image(_ image: UIImage, forState state: UIControl.State = .normal) -> Self {
         self.setImage(image, for: state)
         return self
     }

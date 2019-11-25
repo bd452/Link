@@ -9,13 +9,12 @@
 import UIKit
 
 open class TableViewController: UITableViewController {
-    
+
     var cellForRowAtIndexPath: ((UITableView, IndexPath) -> UITableViewCell)?
     var numberOfRowsInSection: ((UITableView, Int) -> Int)?
     var heightForRowAtIndexPath: ((UITableView, IndexPath) -> CGFloat)?
-    
+
     public var numberOfSections = 1
-    
 
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -41,11 +40,9 @@ open class TableViewController: UITableViewController {
         return numberOfRowsInSection?(tableView, section) ?? 0
     }
 
-    
     override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return self.cellForRowAtIndexPath?(tableView, indexPath) ?? UITableViewCell()
     }
-    
 
     /*
     // Override to support conditional editing of the table view.

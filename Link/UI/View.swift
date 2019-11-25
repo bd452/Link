@@ -48,7 +48,7 @@ public extension View {
         return self
     }
     func origin(_ x: CGFloat, _ y: CGFloat) -> Self {
-        self.frame <- Point(x,y)
+        self.frame <- Point(x, y)
         return self
     }
     func translated(x: CGFloat = 0, y: CGFloat = 0) -> Self {
@@ -128,7 +128,7 @@ public extension View {
         }
         return self
     }
-    
+
 }
 
 public extension View {
@@ -136,4 +136,3 @@ public extension View {
         a()
     }
 }
-

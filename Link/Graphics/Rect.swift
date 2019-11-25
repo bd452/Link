@@ -32,7 +32,7 @@ public extension Rect {
         r.origin.x += x
         return r
     }
-    func dY(_ y:CGFloat) -> Rect {
+    func dY(_ y: CGFloat) -> Rect {
         var r = self
         r.origin.y += y
         return r
@@ -65,7 +65,7 @@ public extension Rect {
         r.origin.x = x
         return r
     }
-    func y(_ y:CGFloat) -> Rect {
+    func y(_ y: CGFloat) -> Rect {
         var r = self
         r.origin.y = y
         return r
@@ -80,9 +80,7 @@ public extension Rect {
         r.size.height = height
         return r
     }
-    
-    
-    
+
 }
 
 extension Rect: Link {}

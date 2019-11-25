@@ -27,18 +27,18 @@ public extension Color {
         self.init(red: components.red, green: components.green, blue: components.blue, alpha: components.alpha)
     }
     convenience init(_ color: UIColor) {
-        var rgba: colorComponentsRGB = (0,0,0,0)
+        var rgba: colorComponentsRGB = (0, 0, 0, 0)
         color.getRed(&rgba.red, green: &rgba.green, blue: &rgba.blue, alpha: &rgba.alpha)
         self.init(rgba)
     }
-    
+
     var rgba: colorComponentsRGB {
-            var rgba: colorComponentsRGB = (0,0,0,0)
+            var rgba: colorComponentsRGB = (0, 0, 0, 0)
             self.getRed(&rgba.red, green: &rgba.green, blue: &rgba.blue, alpha: &rgba.alpha)
             return rgba
     }
     var hsba: colorComponentsHSB {
-            var hsba: colorComponentsHSB = (0,0,0,0)
+            var hsba: colorComponentsHSB = (0, 0, 0, 0)
             self.getHue(&hsba.hue, saturation: &hsba.saturation, brightness: &hsba.brightness, alpha: &hsba.alpha)
             return hsba
     }
@@ -86,7 +86,7 @@ public extension UIColor {
         }
     }
     @objc func asImage() -> UIImage? {
-        let rect = CGRect(x: 0,y: 0,width: 1,height: 1)
+        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
         context?.setFillColor(self.cgColor)
